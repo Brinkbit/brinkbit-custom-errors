@@ -1,0 +1,42 @@
+{
+  "name": "brinkbit-custom-errors",
+  "version": "0.1.0",
+  "description": "Collection of custom errors used across brinkbit modules.",
+  "main": "src/index.js",
+  "dependencies": {
+    "custom-error-instance": "^2.1.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-documentation": "^2.2.0",
+    "gulp-istanbul": "^0.10.4",
+    "gulp-mocha": "^2.2.0",
+    "gulp-nsp": "^2.4.0",
+    "isparta": "^4.0.0",
+    "pre-commit": "^1.1.2"
+  },
+  "scripts": {
+    "test": "gulp test",
+    "eslint-pre-commit": "./scripts/eslint-pre-commit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brinkbit/brinkbit-custom-errors.git"
+  },
+  "keywords": [
+    "brinkbit",
+    "custom",
+    "error",
+    "http"
+  ],
+  "author": "Brinkbit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Brinkbit/brinkbit-custom-errors/issues"
+  },
+  "homepage": "https://github.com/Brinkbit/brinkbit-custom-errors#readme",
+  "pre-commit": [
+    "eslint-pre-commit"
+  ]
+}
