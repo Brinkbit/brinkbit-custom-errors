@@ -10,13 +10,14 @@ npm i --save brinkbit-custom-errors
 
 # Overview
 
-Exposes five common custom errors based on http status codes:
+Exposes six common custom errors based on http status codes:
 
 - BadRequestError - 400
 - AuthenticationError - 401
 - AuthorizationError - 403
 - NoResourceError - 404
 - ConflictError - 409
+- TooLargeError - 413
 
 # Usage
 
