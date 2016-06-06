@@ -5,6 +5,7 @@ const AuthorizationError = require( './AuthorizationError' );
 const BadRequestError = require( './BadRequestError' );
 const ConflictError = require( './ConflictError' );
 const NoResourceError = require( './NoResourceError' );
+const TooLargeError = require( './TooLargeError' );
 
 exports = module.exports = {
     AuthenticationError,
@@ -12,4 +13,5 @@ exports = module.exports = {
     BadRequestError,
     ConflictError,
     NoResourceError,
+    TooLargeError,
 };
