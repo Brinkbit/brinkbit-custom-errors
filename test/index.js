@@ -8,6 +8,7 @@ const AuthorizationError = require( '../src/AuthorizationError' );
 const BadRequestError = require( '../src/BadRequestError' );
 const ConflictError = require( '../src/ConflictError' );
 const NoResourceError = require( '../src/NoResourceError' );
+const TooLargeError = require( '../src/TooLargeError' );
 
 const expect = chai.expect;
 
@@ -26,6 +27,9 @@ describe( 'top level API', function() {
     });
     it( 'should expose NoResourceError', function() {
         expect( customErrors.NoResourceError ).to.be.a.function;
+    });
+    it( 'should expose TooLargeError', function() {
+        expect( customErrors.TooLargeError ).to.be.a.function;
     });
 });
 
@@ -95,6 +99,20 @@ describe( 'NoResourceError', function() {
     });
     it( 'should allow message overrides', function() {
         const error = new NoResourceError( 'Custom message' );
+        expect( error.message ).to.equal( 'Custom message' );
+    });
+});
+
+describe( 'Payload Too Large', function() {
+    it( 'should represent a payload too large error', function() {
+        const error = new TooLargeError();
+        expect( error ).to.be.an.instanceof( TooLargeError );
+        expect( error ).to.be.an.error;
+        expect( error.status ).to.equal( 'Payload Too Large' );
+        expect( error.message ).to.equal( 'Payload Too Large' );
+    });
+    it( 'should allow message overrides', function() {
+        const error = new TooLargeError( 'Custom message' );
         expect( error.message ).to.equal( 'Custom message' );
     });
 });
