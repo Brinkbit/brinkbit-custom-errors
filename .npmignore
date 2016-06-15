@@ -1,0 +1,6 @@
+.gitignore
+*.eslintrc
+test
+coverage
+scripts
+gulpfile.js
