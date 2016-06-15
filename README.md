@@ -14,6 +14,7 @@ Exposes six common custom errors based on http status codes:
 
 - BadRequestError - 400
 - AuthenticationError - 401
+- PaymentError - 401
 - AuthorizationError - 403
 - NoResourceError - 404
 - ConflictError - 409
