@@ -2,5 +2,13 @@
 
 const http = require( 'http' );
 const customError = require( 'custom-error-instance' );
+const types = require( './types' );
 
-exports = module.exports = customError( 'TooLargeError', { code: 413, status: http.STATUS_CODES[413], message: http.STATUS_CODES[413] });
+exports = module.exports = customError( 'TooLargeError', {
+    code: 413,
+    status: http.STATUS_CODES[413],
+    message: http.STATUS_CODES[413],
+    description: http.STATUS_CODES[413],
+    type: types.invalid_request_error,
+    details: [],
+});
