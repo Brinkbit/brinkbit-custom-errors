@@ -9,6 +9,6 @@ exports = module.exports = customError( 'AuthenticationError', {
     status: http.STATUS_CODES[401],
     message: http.STATUS_CODES[401],
     description: http.STATUS_CODES[401],
-    type: types.authentication_error,
+    type: types.DEFAULTS[401],
     details: [],
 });

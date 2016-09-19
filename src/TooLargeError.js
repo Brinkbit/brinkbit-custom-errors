@@ -9,6 +9,6 @@ exports = module.exports = customError( 'TooLargeError', {
     status: http.STATUS_CODES[413],
     message: http.STATUS_CODES[413],
     description: http.STATUS_CODES[413],
-    type: types.invalid_request_error,
+    type: types.DEFAULTS[413],
     details: [],
 });

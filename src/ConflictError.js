@@ -9,6 +9,6 @@ exports = module.exports = customError( 'ConflictError', {
     status: http.STATUS_CODES[409],
     message: http.STATUS_CODES[409],
     description: http.STATUS_CODES[409],
-    type: types.invalid_request_error,
+    type: types.DEFAULTS[409],
     details: [],
 });

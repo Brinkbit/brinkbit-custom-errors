@@ -42,6 +42,16 @@ describe( 'top level API', function() {
             payment_error: 'payment_error',
             rate_limit_error: 'rate_limit_error',
             internal_error: 'internal_error',
+            DEFAULTS: {
+                400: 'invalid_request_error',
+                403: 'invalid_request_error',
+                404: 'invalid_request_error',
+                409: 'invalid_request_error',
+                413: 'invalid_request_error',
+                401: 'authentication_error',
+                402: 'payment_error',
+                500: 'internal_error',
+            },
         });
     });
     it( 'should expose details', function() {

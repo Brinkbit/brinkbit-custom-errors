@@ -9,6 +9,6 @@ exports = module.exports = customError( 'NoResourceError', {
     status: http.STATUS_CODES[404],
     message: http.STATUS_CODES[404],
     description: http.STATUS_CODES[404],
-    type: types.invalid_request_error,
+    type: types.DEFAULTS[404],
     details: [],
 });
