@@ -7,13 +7,17 @@ const ConflictError = require( './ConflictError' );
 const NoResourceError = require( './NoResourceError' );
 const TooLargeError = require( './TooLargeError' );
 const PaymentError = require( './PaymentError' );
+const details = require( './details' );
+const types = require( './types' );
 
 exports = module.exports = {
-    AuthenticationError,
-    AuthorizationError,
+    details,
+    types,
     BadRequestError,
-    ConflictError,
-    NoResourceError,
-    TooLargeError,
+    AuthenticationError,
     PaymentError,
+    AuthorizationError,
+    NoResourceError,
+    ConflictError,
+    TooLargeError,
 };
