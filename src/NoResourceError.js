@@ -10,5 +10,5 @@ exports = module.exports = customError( 'NoResourceError', {
     message: http.STATUS_CODES[404],
     description: http.STATUS_CODES[404],
     type: types.DEFAULTS[404],
-    details: [],
+    details: {},
 });

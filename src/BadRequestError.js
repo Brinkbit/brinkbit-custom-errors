@@ -10,5 +10,5 @@ exports = module.exports = customError( 'BadRequestError', {
     message: http.STATUS_CODES[400],
     description: http.STATUS_CODES[400],
     type: types.DEFAULTS[400],
-    details: [],
+    details: {},
 });

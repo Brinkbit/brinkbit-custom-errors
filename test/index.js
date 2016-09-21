@@ -75,7 +75,7 @@ describe( 'AuthenticationError', function() {
         expect( error ).to.have.property( 'message' ).and.equal( 'Unauthorized' );
         expect( error ).to.have.property( 'description' ).and.equal( 'Unauthorized' );
         expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.authentication_error );
-        expect( error ).to.have.property( 'details' ).and.deep.equal([]);
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
     });
     it( 'should allow message overrides', function() {
         const error = new AuthenticationError( 'Custom message' );
@@ -90,18 +90,12 @@ describe( 'AuthenticationError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new AuthenticationError({ message: 'Custom message', details: [
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ] });
-        expect( error ).to.have.property( 'details' ).and.deep.equal([
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ]);
+        const error = new AuthenticationError({ message: 'Custom message', details: {
+            custom: customErrors.details.missing_parameter,
+        } });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
     });
 });
 
@@ -115,7 +109,7 @@ describe( 'AuthorizationError', function() {
         expect( error ).to.have.property( 'message' ).and.equal( 'Forbidden' );
         expect( error ).to.have.property( 'description' ).and.equal( 'Forbidden' );
         expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.invalid_request_error );
-        expect( error ).to.have.property( 'details' ).and.deep.equal([]);
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
     });
     it( 'should allow message overrides', function() {
         const error = new AuthorizationError( 'Custom message' );
@@ -130,18 +124,12 @@ describe( 'AuthorizationError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new AuthorizationError({ message: 'Custom message', details: [
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ] });
-        expect( error ).to.have.property( 'details' ).and.deep.equal([
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ]);
+        const error = new AuthorizationError({ message: 'Custom message', details: {
+            custom: customErrors.details.missing_parameter,
+        } });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
     });
 });
 
@@ -155,7 +143,7 @@ describe( 'BadRequestError', function() {
         expect( error ).to.have.property( 'message' ).and.equal( 'Bad Request' );
         expect( error ).to.have.property( 'description' ).and.equal( 'Bad Request' );
         expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.invalid_request_error );
-        expect( error ).to.have.property( 'details' ).and.deep.equal([]);
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
     });
     it( 'should allow message overrides', function() {
         const error = new BadRequestError( 'Custom message' );
@@ -170,18 +158,12 @@ describe( 'BadRequestError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new BadRequestError({ message: 'Custom message', details: [
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ] });
-        expect( error ).to.have.property( 'details' ).and.deep.equal([
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ]);
+        const error = new BadRequestError({ message: 'Custom message', details: {
+            custom: customErrors.details.missing_parameter,
+        } });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
     });
 });
 
@@ -195,7 +177,7 @@ describe( 'ConflictError', function() {
         expect( error ).to.have.property( 'message' ).and.equal( 'Conflict' );
         expect( error ).to.have.property( 'description' ).and.equal( 'Conflict' );
         expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.invalid_request_error );
-        expect( error ).to.have.property( 'details' ).and.deep.equal([]);
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
     });
     it( 'should allow message overrides', function() {
         const error = new ConflictError( 'Custom message' );
@@ -210,18 +192,12 @@ describe( 'ConflictError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new ConflictError({ message: 'Custom message', details: [
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ] });
-        expect( error ).to.have.property( 'details' ).and.deep.equal([
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ]);
+        const error = new ConflictError({ message: 'Custom message', details: {
+            custom: customErrors.details.missing_parameter,
+        } });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
     });
 });
 
@@ -235,7 +211,7 @@ describe( 'NoResourceError', function() {
         expect( error ).to.have.property( 'message' ).and.equal( 'Not Found' );
         expect( error ).to.have.property( 'description' ).and.equal( 'Not Found' );
         expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.invalid_request_error );
-        expect( error ).to.have.property( 'details' ).and.deep.equal([]);
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
     });
     it( 'should allow message overrides', function() {
         const error = new NoResourceError( 'Custom message' );
@@ -250,18 +226,12 @@ describe( 'NoResourceError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new NoResourceError({ message: 'Custom message', details: [
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ] });
-        expect( error ).to.have.property( 'details' ).and.deep.equal([
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ]);
+        const error = new NoResourceError({ message: 'Custom message', details: {
+            custom: customErrors.details.missing_parameter,
+        } });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
     });
 });
 
@@ -275,7 +245,7 @@ describe( 'Payload Too Large', function() {
         expect( error ).to.have.property( 'message' ).and.equal( 'Payload Too Large' );
         expect( error ).to.have.property( 'description' ).and.equal( 'Payload Too Large' );
         expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.invalid_request_error );
-        expect( error ).to.have.property( 'details' ).and.deep.equal([]);
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
     });
     it( 'should allow message overrides', function() {
         const error = new TooLargeError( 'Custom message' );
@@ -290,18 +260,12 @@ describe( 'Payload Too Large', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new TooLargeError({ message: 'Custom message', details: [
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ] });
-        expect( error ).to.have.property( 'details' ).and.deep.equal([
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ]);
+        const error = new TooLargeError({ message: 'Custom message', details: {
+            custom: customErrors.details.missing_parameter,
+        } });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
     });
 });
 
@@ -315,7 +279,7 @@ describe( 'Payment Required', function() {
         expect( error ).to.have.property( 'message' ).and.equal( 'Payment Required' );
         expect( error ).to.have.property( 'description' ).and.equal( 'Payment Required' );
         expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.payment_error );
-        expect( error ).to.have.property( 'details' ).and.deep.equal([]);
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
     });
     it( 'should allow message overrides', function() {
         const error = new PaymentError( 'Custom message' );
@@ -330,17 +294,11 @@ describe( 'Payment Required', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new PaymentError({ message: 'Custom message', details: [
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ] });
-        expect( error ).to.have.property( 'details' ).and.deep.equal([
-            {
-                code: customErrors.details.missing_parameter,
-                parameter: 'custom',
-            },
-        ]);
+        const error = new PaymentError({ message: 'Custom message', details: {
+            custom: customErrors.details.missing_parameter,
+        } });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
     });
 });
