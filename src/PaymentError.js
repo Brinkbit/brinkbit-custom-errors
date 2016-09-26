@@ -10,5 +10,5 @@ exports = module.exports = customError( 'PaymentError', {
     message: http.STATUS_CODES[402],
     description: http.STATUS_CODES[402],
     type: types.DEFAULTS[402],
-    details: [],
+    details: {},
 });

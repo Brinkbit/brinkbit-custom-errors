@@ -10,5 +10,5 @@ exports = module.exports = customError( 'ConflictError', {
     message: http.STATUS_CODES[409],
     description: http.STATUS_CODES[409],
     type: types.DEFAULTS[409],
-    details: [],
+    details: {},
 });

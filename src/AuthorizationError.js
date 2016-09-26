@@ -10,5 +10,5 @@ exports = module.exports = customError( 'AuthorizationError', {
     message: http.STATUS_CODES[403],
     description: http.STATUS_CODES[403],
     type: types.DEFAULTS[403],
-    details: [],
+    details: {},
 });
