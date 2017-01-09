@@ -10,6 +10,7 @@ const ConflictError = require( '../src/ConflictError' );
 const NoResourceError = require( '../src/NoResourceError' );
 const TooLargeError = require( '../src/TooLargeError' );
 const PaymentError = require( '../src/PaymentError' );
+const InternalServerError = require( '../src/InternalServerError' );
 
 const expect = chai.expect;
 
@@ -34,6 +35,9 @@ describe( 'top level API', function() {
     });
     it( 'should expose PaymentError', function() {
         expect( customErrors.PaymentError ).to.be.a.function;
+    });
+    it( 'should expose InternalServerError', function() {
+        expect( customErrors.InternalServerError ).to.be.a.function;
     });
     it( 'should expose types', function() {
         expect( customErrors.types ).to.deep.equal({
@@ -295,6 +299,40 @@ describe( 'Payment Required', function() {
     });
     it( 'should allow details to be overridden', function() {
         const error = new PaymentError({ message: 'Custom message', details: {
+            custom: customErrors.details.missing_parameter,
+        } });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
+    });
+});
+
+describe( 'Internal Server Error', function() {
+    it( 'should represent an unexpected internal error', function() {
+        const error = new InternalServerError();
+        expect( error ).to.be.an.instanceof( InternalServerError );
+        expect( error ).to.be.an.error;
+        expect( error ).to.have.property( 'code' ).and.equal( 500 );
+        expect( error ).to.have.property( 'status' ).and.equal( 'Internal Server Error' );
+        expect( error ).to.have.property( 'message' ).and.equal( 'Internal Server Error' );
+        expect( error ).to.have.property( 'description' ).and.equal( 'Internal Server Error' );
+        expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.internal_error );
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
+    });
+    it( 'should allow message overrides', function() {
+        const error = new InternalServerError( 'Custom message' );
+        expect( error ).to.have.property( 'message' ).and.equal( 'Custom message' );
+    });
+    it( 'should allow descriptions to be overridden', function() {
+        const error = new InternalServerError({ message: 'Custom message', description: 'Custom Description' });
+        expect( error ).to.have.property( 'description' ).and.equal( 'Custom Description' );
+    });
+    it( 'should allow types to be overridden', function() {
+        const error = new InternalServerError({ message: 'Custom message', type: 'Custom Type' });
+        expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
+    });
+    it( 'should allow details to be overridden', function() {
+        const error = new InternalServerError({ message: 'Custom message', details: {
             custom: customErrors.details.missing_parameter,
         } });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
