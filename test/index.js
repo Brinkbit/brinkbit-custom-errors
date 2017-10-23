@@ -1,5 +1,3 @@
-'use strict';
-
 const chai = require( 'chai' );
 
 const customErrors = require( '../src' );
@@ -69,6 +67,19 @@ describe( 'top level API', function() {
     });
 });
 
+describe( 'convert', function() {
+    it( 'should pass through unidentifiable erros', function() {
+        const err = new Error();
+        expect( customErrors.convert( err )).to.equal( err );
+    });
+
+    it( 'should convert a generic error to a custom error', function() {
+        const err = new Error();
+        err.status = 400;
+        expect( customErrors.convert( err )).to.be.an.instanceof( customErrors.BadRequestError );
+    });
+});
+
 describe( 'AuthenticationError', function() {
     it( 'should represent an authentication error', function() {
         const error = new AuthenticationError();
@@ -94,9 +105,12 @@ describe( 'AuthenticationError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new AuthenticationError({ message: 'Custom message', details: {
-            custom: customErrors.details.missing_parameter,
-        } });
+        const error = new AuthenticationError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
             custom: customErrors.details.missing_parameter,
         });
@@ -128,9 +142,12 @@ describe( 'AuthorizationError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new AuthorizationError({ message: 'Custom message', details: {
-            custom: customErrors.details.missing_parameter,
-        } });
+        const error = new AuthorizationError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
             custom: customErrors.details.missing_parameter,
         });
@@ -162,9 +179,12 @@ describe( 'BadRequestError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new BadRequestError({ message: 'Custom message', details: {
-            custom: customErrors.details.missing_parameter,
-        } });
+        const error = new BadRequestError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
             custom: customErrors.details.missing_parameter,
         });
@@ -196,9 +216,12 @@ describe( 'ConflictError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new ConflictError({ message: 'Custom message', details: {
-            custom: customErrors.details.missing_parameter,
-        } });
+        const error = new ConflictError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
             custom: customErrors.details.missing_parameter,
         });
@@ -230,9 +253,12 @@ describe( 'NoResourceError', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new NoResourceError({ message: 'Custom message', details: {
-            custom: customErrors.details.missing_parameter,
-        } });
+        const error = new NoResourceError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
             custom: customErrors.details.missing_parameter,
         });
@@ -264,9 +290,12 @@ describe( 'Payload Too Large', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new TooLargeError({ message: 'Custom message', details: {
-            custom: customErrors.details.missing_parameter,
-        } });
+        const error = new TooLargeError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
             custom: customErrors.details.missing_parameter,
         });
@@ -298,9 +327,12 @@ describe( 'Payment Required', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new PaymentError({ message: 'Custom message', details: {
-            custom: customErrors.details.missing_parameter,
-        } });
+        const error = new PaymentError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
             custom: customErrors.details.missing_parameter,
         });
@@ -332,9 +364,12 @@ describe( 'Internal Server Error', function() {
         expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
     });
     it( 'should allow details to be overridden', function() {
-        const error = new InternalServerError({ message: 'Custom message', details: {
-            custom: customErrors.details.missing_parameter,
-        } });
+        const error = new InternalServerError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
         expect( error ).to.have.property( 'details' ).and.deep.equal({
             custom: customErrors.details.missing_parameter,
         });

@@ -1,10 +1,8 @@
-'use strict';
-
 const http = require( 'http' );
 const customError = require( 'custom-error-instance' );
 const types = require( './types' );
 
-exports = module.exports = customError( 'TooLargeError', {
+module.exports = customError( 'TooLargeError', {
     code: 413,
     status: http.STATUS_CODES[413],
     message: http.STATUS_CODES[413],

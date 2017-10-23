@@ -1,10 +1,8 @@
-'use strict';
-
 const http = require( 'http' );
 const customError = require( 'custom-error-instance' );
 const types = require( './types' );
 
-exports = module.exports = customError( 'PaymentError', {
+module.exports = customError( 'PaymentError', {
     code: 402,
     status: http.STATUS_CODES[402],
     message: http.STATUS_CODES[402],
