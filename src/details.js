@@ -1,6 +1,4 @@
-'use strict';
-
-module.exports = exports = {
+module.exports = {
     missing_parameter: 'missing_parameter',
     invalid_parameter: 'invalid_parameter',
     conflicting_parameter: 'conflicting_parameter',

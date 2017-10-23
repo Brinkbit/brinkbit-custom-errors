@@ -1,5 +1,3 @@
-'use strict';
-
 const AuthenticationError = require( './AuthenticationError' );
 const AuthorizationError = require( './AuthorizationError' );
 const BadRequestError = require( './BadRequestError' );
@@ -10,10 +8,12 @@ const PaymentError = require( './PaymentError' );
 const InternalServerError = require( './InternalServerError' );
 const details = require( './details' );
 const types = require( './types' );
+const convert = require( './convert' );
 
-exports = module.exports = {
+module.exports = {
     details,
     types,
+    convert,
     BadRequestError,
     AuthenticationError,
     PaymentError,

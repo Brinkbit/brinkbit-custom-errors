@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-disable no-multi-assign */
 
 const types = {
     authentication_error: 'authentication_error',
@@ -18,4 +18,4 @@ types.DEFAULTS[401] = types.authentication_error;
 types.DEFAULTS[402] = types.payment_error;
 types.DEFAULTS[500] = types.internal_error;
 
-module.exports = exports = types;
+module.exports = types;
