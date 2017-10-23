@@ -9,7 +9,6 @@
   "devDependencies": {
     "babel-plugin-__coverage__": "^11.0.0",
     "babel-register": "^6.14.0",
-    "brinkbit-style-es6": "^1.0.3",
     "chai": "^3.5.0",
     "cross-env": "^2.0.1",
     "eslint": "^3.19.0",
@@ -26,8 +25,7 @@
   },
   "scripts": {
     "debug": "cross-env NODE_ENV=debug nyc --reporter=html --reporter=text mocha test/index.js",
-    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha test/index.js",
-    "eslint-pre-commit": "./scripts/eslint-pre-commit"
+    "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text mocha test/index.js"
   },
   "repository": {
     "type": "git",
@@ -44,8 +42,5 @@
   "bugs": {
     "url": "https://github.com/Brinkbit/brinkbit-custom-errors/issues"
   },
-  "homepage": "https://github.com/Brinkbit/brinkbit-custom-errors#readme",
-  "pre-commit": [
-    "eslint-pre-commit"
-  ]
+  "homepage": "https://github.com/Brinkbit/brinkbit-custom-errors#readme"
 }
