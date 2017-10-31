@@ -13,6 +13,7 @@ types.DEFAULTS[400] =
 types.DEFAULTS[403] =
 types.DEFAULTS[404] =
 types.DEFAULTS[409] =
+types.DEFAULTS[429] =
 types.DEFAULTS[413] = types.invalid_request_error;
 types.DEFAULTS[401] = types.authentication_error;
 types.DEFAULTS[402] = types.payment_error;
