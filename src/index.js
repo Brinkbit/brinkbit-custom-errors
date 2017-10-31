@@ -4,6 +4,7 @@ const BadRequestError = require( './BadRequestError' );
 const ConflictError = require( './ConflictError' );
 const NoResourceError = require( './NoResourceError' );
 const TooLargeError = require( './TooLargeError' );
+const TooManyRequestsError = require( './TooManyRequestsError' );
 const PaymentError = require( './PaymentError' );
 const InternalServerError = require( './InternalServerError' );
 const details = require( './details' );
@@ -21,5 +22,6 @@ module.exports = {
     NoResourceError,
     ConflictError,
     TooLargeError,
+    TooManyRequestsError,
     InternalServerError,
 };

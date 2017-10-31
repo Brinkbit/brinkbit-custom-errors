@@ -7,6 +7,7 @@ const BadRequestError = require( '../src/BadRequestError' );
 const ConflictError = require( '../src/ConflictError' );
 const NoResourceError = require( '../src/NoResourceError' );
 const TooLargeError = require( '../src/TooLargeError' );
+const TooManyRequestsError = require( '../src/TooManyRequestsError' );
 const PaymentError = require( '../src/PaymentError' );
 const InternalServerError = require( '../src/InternalServerError' );
 
@@ -50,6 +51,7 @@ describe( 'top level API', function() {
                 404: 'invalid_request_error',
                 409: 'invalid_request_error',
                 413: 'invalid_request_error',
+                429: 'invalid_request_error',
                 401: 'authentication_error',
                 402: 'payment_error',
                 500: 'internal_error',
@@ -291,6 +293,43 @@ describe( 'Payload Too Large', function() {
     });
     it( 'should allow details to be overridden', function() {
         const error = new TooLargeError({
+            message: 'Custom message',
+            details: {
+                custom: customErrors.details.missing_parameter,
+            },
+        });
+        expect( error ).to.have.property( 'details' ).and.deep.equal({
+            custom: customErrors.details.missing_parameter,
+        });
+    });
+});
+
+describe( 'Too Many Requests', function() {
+    it( 'should represent a too many requests error', function() {
+        const error = new TooManyRequestsError();
+        expect( error ).to.be.an.instanceof( TooManyRequestsError );
+        expect( error ).to.be.an.error;
+        expect( error ).to.have.property( 'code' ).and.equal( 429 );
+        expect( error ).to.have.property( 'status' ).and.equal( 'Too Many Requests' );
+        expect( error ).to.have.property( 'message' ).and.equal( 'Too Many Requests' );
+        expect( error ).to.have.property( 'description' ).and.equal( 'Too Many Requests' );
+        expect( error ).to.have.property( 'type' ).and.equal( customErrors.types.invalid_request_error );
+        expect( error ).to.have.property( 'details' ).and.deep.equal({});
+    });
+    it( 'should allow message overrides', function() {
+        const error = new TooManyRequestsError( 'Custom message' );
+        expect( error ).to.have.property( 'message' ).and.equal( 'Custom message' );
+    });
+    it( 'should allow descriptions to be overridden', function() {
+        const error = new TooManyRequestsError({ message: 'Custom message', description: 'Custom Description' });
+        expect( error ).to.have.property( 'description' ).and.equal( 'Custom Description' );
+    });
+    it( 'should allow types to be overridden', function() {
+        const error = new TooManyRequestsError({ message: 'Custom message', type: 'Custom Type' });
+        expect( error ).to.have.property( 'type' ).and.equal( 'Custom Type' );
+    });
+    it( 'should allow details to be overridden', function() {
+        const error = new TooManyRequestsError({
             message: 'Custom message',
             details: {
                 custom: customErrors.details.missing_parameter,
