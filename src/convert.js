@@ -4,6 +4,7 @@ const BadRequestError = require( './BadRequestError' );
 const ConflictError = require( './ConflictError' );
 const NoResourceError = require( './NoResourceError' );
 const TooLargeError = require( './TooLargeError' );
+const TooManyRequestsError = require( './TooManyRequestsError' );
 const PaymentError = require( './PaymentError' );
 const InternalServerError = require( './InternalServerError' );
 
@@ -16,6 +17,7 @@ errorsByCode[403] = AuthorizationError;
 errorsByCode[404] = NoResourceError;
 errorsByCode[409] = ConflictError;
 errorsByCode[413] = TooLargeError;
+errorsByCode[429] = TooManyRequestsError;
 errorsByCode[500] = InternalServerError;
 
 module.exports = function convert( error ) {
